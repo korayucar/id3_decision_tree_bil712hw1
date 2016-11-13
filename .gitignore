@@ -1,0 +1,5 @@
+.gradle/
+.idea/
+build/
+rules.txt
+homework1.iml

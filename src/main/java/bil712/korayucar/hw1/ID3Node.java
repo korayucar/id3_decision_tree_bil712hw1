@@ -32,7 +32,7 @@ public class ID3Node {
     }
 
     private void print(PrintStream out, String prefix, boolean isTail, AttributeValue name) {
-        out.println(prefix + (isTail ? "        └───────────── " : "        ├────────────── ") + (name==null ? "" : name.getDescription())+ toString());
+        out.println(prefix + (isTail ? "        └───────────── " : "        ├───────────── ") + (name==null ? "" : name.getDescription())+ toString());
         int i = 0;
         for (Map.Entry<AttributeValue, ID3Node> entry : childNodes.entrySet()) {
             AttributeValue attributeValue = entry.getKey();

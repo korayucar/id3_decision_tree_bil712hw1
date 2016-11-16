@@ -24,12 +24,19 @@ public class ID3 {
             return node;
         }
         //find out the index with the biggest information gain
-        double minEntropy = 1.0;
+        double maxGain = -0.1;
         Attribute bestAttribute = null;
+
+        List<Integer> outcomes  = new ArrayList<>();
+        for(AttributeValue av : targetAttribute.attributeValues)
+            outcomes.add(examples.stream().filter(e->av.equals(e.outcome)).collect(Collectors.toList()).size());
+        double entropyOfSamples = -1*entropy(outcomes);
+
+
         for(Attribute a : attributes){
-            double ent = entropy(examples , targetAttribute,a);
-            if(ent < minEntropy){
-                minEntropy = ent;
+            double gain = entropyOfSamples + entropy(examples , targetAttribute,a);
+            if(gain > maxGain){
+                maxGain = gain;
                 bestAttribute = a;
             }
         }
@@ -90,7 +97,7 @@ public class ID3 {
                 entr +=  p* Math.log(p)/Math.log(2);
         }
         if(entr ==Double.NaN)
-            System.out.println(entr);
+            System.err.println(entr);
         return entr;
     }
 }

@@ -1,0 +1,5 @@
+2 Yes No OUTCOME
+3 Sunny Overcast Rain OUTLOOK
+3 Hot Mild Cool TEMP
+2 High Normal HUMIDITY
+2 Weak Strong WIND

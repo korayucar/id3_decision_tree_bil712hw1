@@ -23,7 +23,7 @@ public class ID3Node {
         if (childNodes.size() == 0)
             return " ──> the outcome is " + simpleOutcome.getDescription();
         else
-            return " " +attribute.name.toUpperCase();
+            return "|" +attribute.name.toUpperCase() +"|";
     }
 
 
@@ -32,14 +32,14 @@ public class ID3Node {
     }
 
     private void print(PrintStream out, String prefix, boolean isTail, AttributeValue name) {
-        out.println(prefix + (isTail ? "└───────── " : "├───────── ") + (name==null ? "" : name.getDescription())+ toString());
+        out.println(prefix + (isTail ? "        └───────────── " : "        ├────────────── ") + (name==null ? "" : name.getDescription())+ toString());
         int i = 0;
         for (Map.Entry<AttributeValue, ID3Node> entry : childNodes.entrySet()) {
             AttributeValue attributeValue = entry.getKey();
             if (i < childNodes.size() - 1)
-                entry.getValue().print(out,prefix + (isTail ? "    " : "│   "), false, attributeValue);
+                entry.getValue().print(out,prefix + (isTail ? "                       " : "        │              "), false, attributeValue);
             else
-                entry.getValue().print(out,prefix + (isTail ? "    " : "│   "), true, attributeValue);
+                entry.getValue().print(out,prefix + (isTail ? "                       " : "        │              "), true, attributeValue);
             i++;
         }
     }

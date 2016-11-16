@@ -1,0 +1,10 @@
+Yes Sunny    Cool Normal Weak
+No  Sunny    Cool High   Strong
+No  Sunny    Cool Normal Strong
+Yes Overcast Hot  Normal Weak
+No  Overcast Cool High   Weak
+Yes Overcast Mild Normal Strong
+Yes Overcast Mild Normal Weak
+No  Rain     Cool High   Weak
+Yes Rain     Cool Normal Weak
+No  Rain     Hot  Normal Strong
